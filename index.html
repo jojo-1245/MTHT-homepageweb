@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MetaHint</title>
 
-    <link rel="stylesheet" href="./styles/main.css" />
-    <link
-      rel="icon"
-      href="./assets/images/logo_metahint_image.png"
-      type="image/png"
-      sizes="32x32"
-    />
-
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -24,35 +16,71 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      body {
+        font-family: "Noto Sans", sans-serif;
+        background-color: #f3f3ff;
+      }
+
+      @media (min-width: 768px) and (max-width: 950px) {
+        .nav-link {
+          padding-left: 0.6rem !important;
+          padding-right: 0.6rem !important;
+          font-size: 0.875rem !important;
+        }
+
+        .logo-responsive {
+          width: 7rem !important;
+        }
+
+        .white-paper-btn {
+          padding-left: 0.75rem !important;
+          padding-right: 0.75rem !important;
+          font-size: 0.875rem !important;
+        }
+      }
+    </style>
   </head>
-  <body class="bg-[#F3F3FF] font-notosans">
+  <body class="bg-[#F3F3FF]">
     <!-- Navbar -->
     <header class="">
       <div
-        class="max-w-screen-xl mx-auto px-6 py-6 flex justify-between items-center"
+        class="max-w-screen-xl mx-auto px-4 sm:px-6 py-4 md:py-6 flex justify-between items-center"
       >
         <div class="text-2xl font-bold text-indigo-600">
           <img
             src="./assets/images/logo_metahint_text.png"
             alt="Metahint"
-            class="w-26 md:w-34 lg:w-40 z-10"
+            class="logo-responsive w-24 md:w-32 lg:w-40 z-10"
           />
         </div>
-        <nav id="navbar" class="hidden md:flex space-x-6 font-medium">
+        <nav
+          id="navbar"
+          class="hidden md:flex space-x-1 lg:space-x-2 xl:space-x-6 font-medium"
+        >
           <a
             href="#"
-            class="nav-link text-[#5E62AC] py-3 px-6 rounded-xl font-semibold bg-white"
+            class="nav-link text-[#5E62AC] py-3 px-3 lg:px-4 xl:px-6 rounded-xl font-semibold bg-white"
             >Home</a
           >
-          <a href="#" class="nav-link py-3 px-6 rounded-xl">About</a>
-          <a href="#" class="nav-link py-3 px-6 rounded-xl">Key Services</a>
-          <a href="#" class="nav-link py-3 px-6 rounded-xl">Tokenomics</a>
-          <a href="#" class="nav-link py-3 px-6 rounded-xl">Roadmap</a>
+          <a href="#" class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
+            >About</a
+          >
+          <a href="#" class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
+            >Key Services</a
+          >
+          <a href="#" class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
+            >Tokenomics</a
+          >
+          <a href="#" class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
+            >Roadmap</a
+          >
         </nav>
 
         <a
           href="#"
-          class="font-medium hidden md:inline-block px-4 py-2 border border-[#5E62AC] rounded-lg text-[#5E62AC] hover:bg-[#5E62AC] hover:text-white transition"
+          class="white-paper-btn font-medium hidden md:inline-block px-3 lg:px-4 xl:px-4 py-2 border border-[#5E62AC] rounded-lg text-[#5E62AC] hover:bg-[#5E62AC] hover:text-white transition"
         >
           White Paper
         </a>
@@ -67,14 +95,14 @@
         id="mobile-menu"
         class="hidden bg-white border-t border-gray-200 md:hidden flex flex-col px-6 py-4 space-y-3"
       >
-        <a href="#" class="hover:text-indigo-600">Home</a>
-        <a href="#" class="hover:text-indigo-600">About</a>
-        <a href="#" class="hover:text-indigo-600">Key Services</a>
-        <a href="#" class="hover:text-indigo-600">Tokenomics</a>
-        <a href="#" class="hover:text-indigo-600">Roadmap</a>
+        <a href="#" class="hover:text-indigo-600 py-2">Home</a>
+        <a href="#" class="hover:text-indigo-600 py-2">About</a>
+        <a href="#" class="hover:text-indigo-600 py-2">Key Services</a>
+        <a href="#" class="hover:text-indigo-600 py-2">Tokenomics</a>
+        <a href="#" class="hover:text-indigo-600 py-2">Roadmap</a>
         <a
           href="#"
-          class="px-4 py-2 border border-indigo-600 rounded-lg text-indigo-600 hover:bg-indigo-600 hover:text-white transition"
+          class="px-4 py-2 border border-indigo-600 rounded-lg text-indigo-600 hover:bg-indigo-600 hover:text-white transition inline-block text-center mt-2"
         >
           White Paper
         </a>
@@ -82,25 +110,25 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="py-16">
+    <section class="py-12 md:py-16">
       <div
-        class="max-w-screen-xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+        class="max-w-screen-xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
       >
         <!-- Left Content -->
         <div class="text-center md:text-left">
           <h1
-            class="text-3xl md:text-5xl font-bold leading-tight text-gray-900"
+            class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900"
           >
             AI & Blockchain for <br />
             <span class="text-indigo-600">Digital Health Trust</span>
           </h1>
-          <p class="mt-4 text-gray-600 text-lg">
+          <p class="mt-4 text-gray-600 text-base md:text-lg">
             Personal Data Sovereignty, Real-World Health Utility
           </p>
           <div class="mt-6">
             <a
               href="#"
-              class="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition"
+              class="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition inline-block"
             >
               App Download
             </a>
@@ -108,12 +136,14 @@
         </div>
 
         <!-- Right Content -->
-        <div class="relative flex justify-center md:justify-end">
+        <div
+          class="relative flex justify-center md:justify-end order-first md:order-last"
+        >
           <!-- Bot -->
           <img
             src="./assets/images/image_robot.png"
             alt="Bot Illustration"
-            class="w-40 md:w-52 lg:w-64 z-10"
+            class="w-40 md:w-48 lg:w-64 z-10"
           />
         </div>
       </div>
@@ -131,7 +161,7 @@
       };
 
       $("#menu-btn").click(function () {
-        $("#mobile-menu").slideToggle();
+        $("#mobile-menu").slideToggle(200);
       });
 
       $("#navbar .nav-link").click(function (e) {
