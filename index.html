@@ -3,29 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meta Hiilt</title>
+    <title>MetaHint</title>
+
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link
+      rel="icon"
+      href="./assets/images/logo_metahint_image.png"
+      type="image/png"
+      sizes="32x32"
+    />
+
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-white font-sans">
+  <body class="bg-[#F3F3FF] font-notosans">
     <!-- Navbar -->
-    <header class="bg-white shadow-sm">
+    <header class="">
       <div
-        class="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center"
+        class="max-w-screen-xl mx-auto px-6 py-6 flex justify-between items-center"
       >
-        <div class="text-2xl font-bold text-indigo-600">META HiiLT</div>
-        <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
-          <a href="#" class="hover:text-indigo-600">Home</a>
-          <a href="#" class="hover:text-indigo-600">About</a>
-          <a href="#" class="hover:text-indigo-600">Key Services</a>
-          <a href="#" class="hover:text-indigo-600">Tokenomics</a>
-          <a href="#" class="hover:text-indigo-600">Roadmap</a>
+        <div class="text-2xl font-bold text-indigo-600">
+          <img
+            src="./assets/images/logo_metahint_text.png"
+            alt="Metahint"
+            class="w-26 md:w-34 lg:w-40 z-10"
+          />
+        </div>
+        <nav id="navbar" class="hidden md:flex space-x-6 font-medium">
+          <a
+            href="#"
+            class="nav-link text-[#5E62AC] py-3 px-6 rounded-xl font-semibold bg-white"
+            >Home</a
+          >
+          <a href="#" class="nav-link py-3 px-6 rounded-xl">About</a>
+          <a href="#" class="nav-link py-3 px-6 rounded-xl">Key Services</a>
+          <a href="#" class="nav-link py-3 px-6 rounded-xl">Tokenomics</a>
+          <a href="#" class="nav-link py-3 px-6 rounded-xl">Roadmap</a>
         </nav>
+
         <a
           href="#"
-          class="hidden md:inline-block px-4 py-2 border border-indigo-600 rounded-lg text-indigo-600 hover:bg-indigo-600 hover:text-white transition"
+          class="font-medium hidden md:inline-block px-4 py-2 border border-[#5E62AC] rounded-lg text-[#5E62AC] hover:bg-[#5E62AC] hover:text-white transition"
         >
           White Paper
         </a>
@@ -55,7 +82,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-white py-16">
+    <section class="py-16">
       <div
         class="max-w-screen-xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
       >
@@ -84,24 +111,37 @@
         <div class="relative flex justify-center md:justify-end">
           <!-- Bot -->
           <img
-            src="bot.png"
+            src="./assets/images/image_robot.png"
             alt="Bot Illustration"
             class="w-40 md:w-52 lg:w-64 z-10"
-          />
-          <!-- Phone -->
-          <img
-            src="phone.png"
-            alt="Phone Mockup"
-            class="absolute top-12 md:top-16 lg:top-20 w-52 md:w-64 lg:w-72"
           />
         </div>
       </div>
     </section>
 
     <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              notosans: ['"Noto Sans"', "sans-serif"],
+            },
+          },
+        },
+      };
 
       $("#menu-btn").click(function () {
         $("#mobile-menu").slideToggle();
+      });
+
+      $("#navbar .nav-link").click(function (e) {
+        e.preventDefault();
+        $("#navbar .nav-link").removeClass("text-[#5E62AC]");
+        $("#navbar .nav-link").removeClass("bg-white");
+        $("#navbar .nav-link").removeClass("font-semibold");
+        $(this).addClass("text-[#5E62AC]");
+        $(this).addClass("bg-white");
+        $(this).addClass("font-semibold");
       });
     </script>
   </body>
