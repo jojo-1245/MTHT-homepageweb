@@ -342,7 +342,7 @@
 
     <!-- Tokenomics Section -->
     <section id="tokenomics" class="py-16 bg-[#FAFAFA]">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
           Tokenomics
         </h2>
@@ -397,11 +397,14 @@
             <h3 class="text-2xl font-semibold text-start mb-4">
               Token Distribution
             </h3>
-            <div class="relative flex-1 mt-5">
-              <canvas
-                id="tokenDistributionChart"
-                class="absolute inset-0 w-full h-full"
-              ></canvas>
+            <div class="flex flex-col lg:flex-row gap-6">
+              <!-- Chart -->
+              <div class="flex-1 relative h-[400px]">
+                <canvas id="tokenDistributionChart"></canvas>
+              </div>
+
+              <!-- Custom Legend -->
+              <div id="tokenLegend" class="flex-1 space-y-2 mt-5"></div>
             </div>
           </div>
 
@@ -600,17 +603,48 @@
 
       const tokenomicsData = {
         allocations: [
-          { category: "Team & Advisors", percentage: 15, color: "#ECECEC" },
-          { category: "Foundation Reserve", percentage: 20, color: "#E0ECF4" },
-          { category: "Community & DAO", percentage: 20, color: "#BFD3E6" },
-          { category: "Ecosystem Subsidy", percentage: 15, color: "#9EBCDA" },
+          {
+            category: "Team & Advisors",
+            percentage: 15,
+            color: "#ECECEC",
+            description: "Cliff: 2m · Vesting: 48m (monthly)",
+          },
+          {
+            category: "Foundation Reserve",
+            percentage: 20,
+            color: "#E0ECF4",
+            description: "Cliff: 6m · Vesting: 48m (monthly)",
+          },
+          {
+            category: "Community & DAO",
+            percentage: 20,
+            color: "#BFD3E6",
+            description: "Cliff: 0m · Vesting: Streaming/Grants",
+          },
+          {
+            category: "Ecosystem Subsidy",
+            percentage: 15,
+            color: "#9EBCDA",
+            description: "Cliff: 3m · Vesting: 48m (quarterly)",
+          },
           {
             category: "Marketing & Partnerships",
             percentage: 15,
             color: "#8C96C6",
+            description: "Cliff: 0m · Vesting: 36m (monthly)",
           },
-          { category: "Public Sale", percentage: 10, color: "#8C6BB1" },
-          { category: "Private Sale", percentage: 5, color: "#88419D" },
+          {
+            category: "Public Sale",
+            percentage: 10,
+            color: "#8C6BB1",
+            description: "Cliff: 0m · Vesting: 12m (monthly), 25% TGE",
+          },
+          {
+            category: "Private Sale",
+            percentage: 5,
+            color: "#88419D",
+            description: "Cliff: 0m · Vesting: 18m (monthly), 10% TGE",
+          },
         ],
       };
 
@@ -625,14 +659,13 @@
           (item) => item.color
         );
 
-        new Chart(ctx, {
+        const chart = new Chart(ctx, {
           type: "doughnut",
           data: {
-            labels: labels,
-
+            labels,
             datasets: [
               {
-                data: data,
+                data,
                 backgroundColor: backgroundColors,
                 borderWidth: 1,
               },
@@ -643,31 +676,32 @@
             maintainAspectRatio: false,
             plugins: {
               legend: {
-                position: "right",
-                labels: {
-                  boxWidth: 15,
-                  padding: 15,
-                  usePointStyle: true,
-                  pointStyle: "circle",
-                  rounded: true,
-                  color: "black",
-                  font: {
-                    size: 16,
-                    family: "Arial",
-                    weight: "bold",
-                  },
-                },
+                display: false, 
               },
               tooltip: {
                 callbacks: {
-                  label: function (context) {
-                    return `${context.label}: ${context.raw}%`;
-                  },
+                  label: (ctx) => `${ctx.label}: ${ctx.raw}%`,
                 },
               },
             },
+            cutout: "60%",
           },
         });
+
+        const legendContainer = document.getElementById("tokenLegend");
+        legendContainer.innerHTML = tokenomicsData.allocations
+          .map(
+            (item) => `
+              <div class="flex gap-3">
+                <span class="mt-1 w-6 h-6 rounded-full border border-gray-300" style="background:${item.color}"></span>
+                <div>
+                  <p class="font-medium">${item.category} - ${item.percentage}%</p>
+                  <p class="text-sm text-gray-600">${item.description}</p>
+                </div>
+              </div>
+            `
+          )
+          .join("");
       }
 
       $("#menu-btn").click(function () {
