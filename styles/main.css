@@ -83,6 +83,7 @@ body {
 
 /* Media query khusus untuk layar 800-900px */
 @media (min-width: 768px) and (max-width: 950px) {
+  /* ---------- Nav */
   .nav-link {
     padding-left: 0.6rem !important;
     padding-right: 0.6rem !important;
@@ -97,6 +98,20 @@ body {
     padding-left: 0.75rem !important;
     padding-right: 0.75rem !important;
     font-size: 0.875rem !important;
+  }
+
+  /* ---------- Hero Section */
+  #home h1 {
+    font-size: 2.8rem;
+  }
+
+  #home img {
+    height: 380px;
+  }
+
+  /* ---------- Sponsor Section */
+  .grid.grid-cols-2.md\\:grid-cols-3 img {
+    height: 35px;
   }
 }
 
@@ -186,5 +201,27 @@ body {
   #home a {
     padding: 12px 24px;
     font-size: 1rem;
+  }
+
+  /* ---------- Sponsor Section */
+  .bg-white.py-16 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .grid.grid-cols-2.md\\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem;
+  }
+
+  .grid.grid-cols-2.md\\:grid-cols-3 img {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Untuk memastikan semua gambar sejajar */
+  .justify-items-center {
+    align-items: center;
   }
 }
