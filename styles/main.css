@@ -272,4 +272,13 @@ body {
     text-indent: -1.5rem;
     padding-left: 1.5rem;
   }
+
+  /* ---------- Key Service Section */
+  #keyService .keyService-card-container {
+    gap: 10px;
+  }
+
+  #keyService .keyService-card-container div {
+    padding: 17px 15px;
+  }
 }
