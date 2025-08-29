@@ -55,6 +55,15 @@ body {
   min-width: 0;
 }
 
+#about ul {
+  padding-left: 1.2rem;
+}
+
+#about li {
+  text-indent: -1.4rem;
+  padding-left: 1.2rem;
+}
+
 @media (min-width: 768px) {
   .chart-container {
     height: 300px;
@@ -223,5 +232,44 @@ body {
   /* Untuk memastikan semua gambar sejajar */
   .justify-items-center {
     align-items: center;
+  }
+
+  /* ---------- About Section */
+  #about {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  #about .about-image {
+    display: none;
+  }
+
+  #about .grid.gap-6 {
+    text-align: center;
+  }
+
+  #about h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: black;
+  }
+
+  #about p.text-black.mb-4 {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    line-height: 1.6;
+  }
+
+  /* Perbaikan indentasi list */
+  #about ul {
+    text-align: left;
+    padding-left: 1.5rem;
+  }
+
+  #about li {
+    line-height: 1.5;
+    text-indent: -1.5rem;
+    padding-left: 1.5rem;
   }
 }
