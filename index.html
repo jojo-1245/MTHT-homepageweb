@@ -44,6 +44,47 @@
         }
       }
 
+      @media (max-width: 767px) {
+        .floating-navbar {
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #mobile-menu {
+          position: fixed;
+          top: 67px;
+          left: 0;
+          right: 0;
+          background: white;
+          z-index: 90;
+        }
+
+        #mobile-menu a {
+          padding: 12px 20px;
+          border-bottom: 1px solid #f1f1f1;
+          font-weight: 500;
+        }
+
+        #mobile-menu a:last-child {
+          border-color: rgb(79 70 229 / var(--tw-border-opacity, 1));
+          margin-top: 10px;
+          text-align: center;
+          background: #f8f8f8;
+          border-radius: 8px;
+        }
+
+        .logo-responsive {
+          width: 120px !important;
+        }
+      }
+
+      #menu-btn {
+        transition: transform 0.3s ease;
+      }
+
+      #menu-btn.menu-open {
+        transform: rotate(90deg);
+      }
+
       .floating-navbar {
         position: fixed;
         top: 0;
@@ -723,6 +764,18 @@
         },
       };
 
+      $(document).on("click", function (e) {
+        if (!$(e.target).closest("#menu-btn, #mobile-menu").length) {
+          if ($("#mobile-menu").is(":visible")) {
+            $("#mobile-menu").slideUp(200);
+          }
+        }
+      });
+
+      $("#mobile-menu").on("click", function (e) {
+        e.stopPropagation();
+      });
+
       const tokenomicsData = {
         allocations: [
           {
@@ -826,7 +879,9 @@
           .join("");
       }
 
-      $("#menu-btn").click(function () {
+      $("#menu-btn").click(function (e) {
+        e.stopPropagation();
+        $(this).toggleClass("menu-open");
         $("#mobile-menu").slideToggle(200, function () {
           if ($(this).is(":visible")) {
             $(this).css("display", "flex");
