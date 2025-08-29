@@ -79,20 +79,26 @@
           class="hidden md:flex space-x-1 lg:space-x-2 xl:space-x-6 font-medium"
         >
           <a
-            href="#"
+            href="#home"
             class="nav-link text-[#5E62AC] py-3 px-3 lg:px-4 xl:px-6 rounded-xl font-semibold bg-white"
             >Home</a
           >
-          <a href="#" class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
+          <a href="#about" class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
             >About</a
           >
-          <a href="#" class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
+          <a
+            href="#keyService"
+            class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
             >Key Services</a
           >
-          <a href="#" class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
+          <a
+            href="#tokenomics"
+            class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
             >Tokenomics</a
           >
-          <a href="#" class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
+          <a
+            href="#roadmap"
+            class="nav-link py-3 px-3 lg:px-4 xl:px-6 rounded-xl"
             >Roadmap</a
           >
         </nav>
@@ -114,11 +120,13 @@
         id="mobile-menu"
         class="hidden bg-white border-t border-gray-200 md:hidden flex flex-col px-6 py-4 space-y-3"
       >
-        <a href="#" class="hover:text-indigo-600 py-2">Home</a>
-        <a href="#" class="hover:text-indigo-600 py-2">About</a>
-        <a href="#" class="hover:text-indigo-600 py-2">Key Services</a>
-        <a href="#" class="hover:text-indigo-600 py-2">Tokenomics</a>
-        <a href="#" class="hover:text-indigo-600 py-2">Roadmap</a>
+        <a href="#home" class="hover:text-indigo-600 py-2">Home</a>
+        <a href="#about" class="hover:text-indigo-600 py-2">About</a>
+        <a href="#keyService" class="hover:text-indigo-600 py-2"
+          >Key Services</a
+        >
+        <a href="#tokenomics" class="hover:text-indigo-600 py-2">Tokenomics</a>
+        <a href="#roadmap" class="hover:text-indigo-600 py-2">Roadmap</a>
         <a
           href="#"
           class="px-4 py-2 border border-indigo-600 rounded-lg text-indigo-600 hover:bg-indigo-600 hover:text-white transition inline-block text-center mt-2"
@@ -129,7 +137,10 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="py-12 md:py-20 content-with-floating-navbar mt-28">
+    <section
+      id="home"
+      class="py-12 md:py-20 content-with-floating-navbar mt-28"
+    >
       <div
         class="max-w-screen-xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
       >
@@ -194,7 +205,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="py-20 bg-[#FAFAFA]">
+    <section id="about" class="py-20 bg-[#FAFAFA]">
       <div
         class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
       >
@@ -230,6 +241,7 @@
 
     <!-- Key Services Section -->
     <section
+      id="keyService"
       class="py-16 bg-gradient-to-b from-[#5c60a9] to-[#313257] text-white"
     >
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
@@ -314,7 +326,7 @@
     </section>
 
     <!-- Roadmap Section -->
-    <section class="py-16 bg-[#F3F3FF]">
+    <section id="roadmap" class="py-16 bg-[#F3F3FF]">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl md:text-3xl font-bold text-center mb-10">
           Roadmap
@@ -431,6 +443,30 @@
         $(this).addClass("text-[#5E62AC]");
         $(this).addClass("bg-white");
         $(this).addClass("font-semibold");
+
+        const targetId = $(this).attr("href");
+
+        $("html, body").animate(
+          {
+            scrollTop: $(targetId).offset().top - 80, 
+          },
+          800 
+        );
+      });
+
+      $("#mobile-menu a").click(function (e) {
+        e.preventDefault();
+
+        $("#mobile-menu").slideUp(200);
+
+        const targetId = $(this).attr("href");
+
+        $("html, body").animate(
+          {
+            scrollTop: $(targetId).offset().top - 80, 
+          },
+          800 
+        );
       });
     </script>
   </body>
