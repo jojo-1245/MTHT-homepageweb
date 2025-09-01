@@ -290,6 +290,14 @@ body {
     padding: 17px 15px;
   }
 
+  #keyService .keyService-wrapper {
+    margin-bottom: 18px;
+  }
+
+  #keyService > div > h2 {
+    margin-bottom: 45px;
+  }
+
   #tokenomics .mt-16 .col-span-2 .flex.gap-8 {
     grid-template-columns: 1fr;
   }
