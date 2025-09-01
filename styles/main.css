@@ -309,6 +309,10 @@ body {
   #tokenomics .font-semibold.text-base.md\\:text-xl {
     font-size: 1.1rem;
   }
+
+  #tokenomics > div > h2 {
+    margin-bottom: 45px;
+  }
 }
 
 @media (max-width: 1023px) {
