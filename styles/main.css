@@ -233,7 +233,10 @@ body {
     align-items: center;
   }
 
-  #about {
+  #about,
+  #keyService,
+  #tokenomics,
+  #roadmap {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
