@@ -313,6 +313,14 @@ body {
   #tokenomics > div > h2 {
     margin-bottom: 45px;
   }
+
+  #roadmap > div > h2 {
+    margin-bottom: 45px;
+  }
+
+  #roadmap > div {
+    margin-bottom: 15px;
+  }
 }
 
 @media (max-width: 1023px) {
