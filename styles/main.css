@@ -70,6 +70,20 @@ body {
   display: none;
 }
 
+#keyService > div > h2 {
+  margin-bottom: 75px;
+}
+
+#tokenomics > div > h2 {
+  margin-bottom: 75px;
+  margin-top: 10px;
+}
+
+#roadmap > div > h2 {
+  margin-bottom: 75px;
+  margin-top: 10px;
+}
+
 @media (min-width: 768px) {
   .chart-container {
     height: 300px;
