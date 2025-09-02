@@ -195,8 +195,8 @@ body {
     order: -1;
   }
 
-  #home .text-center {
-
+  #home .button-wrapper {
+    margin-bottom: 10px;
   }
 
   #home h1 {
