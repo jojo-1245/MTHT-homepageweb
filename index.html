@@ -465,23 +465,6 @@
                     </p>
                   </a>
                 </li>
-                <!-- Add more news items as needed -->
-                <li>
-                  <a
-                    href="#"
-                    class="news-item block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
-                    data-title="Partnership Announcement"
-                    data-content="We're excited to announce our new partnership with HealthTech Inc.!<br><br>This collaboration will bring enhanced features to our platform. Read more at: <a href='https://example.com/partnership' target='_blank'>Partnership Details</a>"
-                  >
-                    <p class="font-semibold text-base line-clamp-2">
-                      Partnership Announcement
-                    </p>
-                    <p class="text-sm text-gray-900 line-clamp-2">
-                      We're excited to announce our new partnership with
-                      HealthTech Inc.!
-                    </p>
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -714,25 +697,25 @@
           modalContent.html(content);
 
           modal.fadeIn(300);
-          $("body").css("overflow", "hidden"); // Prevent background scrolling
+          $("body").css("overflow", "hidden"); 
         });
 
         $("#modalClose").on("click", function () {
           modal.fadeOut(300);
-          $("body").css("overflow", "auto"); // Re-enable scrolling
+          $("body").css("overflow", "auto"); 
         });
 
         modal.on("click", function (e) {
           if ($(e.target).is(modal)) {
             modal.fadeOut(300);
-            $("body").css("overflow", "auto"); // Re-enable scrolling
+            $("body").css("overflow", "auto"); 
           }
         });
 
         $(document).on("keydown", function (e) {
           if (e.key === "Escape" && modal.is(":visible")) {
             modal.fadeOut(300);
-            $("body").css("overflow", "auto"); // Re-enable scrolling
+            $("body").css("overflow", "auto"); 
           }
         });
       }
@@ -824,7 +807,7 @@
             maintainAspectRatio: false,
             plugins: {
               legend: {
-                display: false, // hide default legend
+                display: false, 
               },
               tooltip: {
                 callbacks: {
@@ -875,9 +858,9 @@
 
         $("html, body").animate(
           {
-            scrollTop: $(targetId).offset().top - 80, // Kurangi tinggi navbar
+            scrollTop: $(targetId).offset().top - 80, 
           },
-          800 // Durasi animasi
+          800 
         );
       });
 
@@ -890,9 +873,9 @@
 
         $("html, body").animate(
           {
-            scrollTop: $(targetId).offset().top - 80, // Kurangi tinggi navbar
+            scrollTop: $(targetId).offset().top - 80, 
           },
-          800 // Durasi animasi
+          800 
         );
       });
 
