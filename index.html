@@ -107,6 +107,19 @@
       </div>
     </header>
 
+    <!-- News Modal -->
+    <div class="modal-overlay" id="newsModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="text-xl font-semibold" id="modalTitle"></h3>
+          <button class="modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="modal-content">
+          <div id="modalContent" class="news-content"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Hero Section -->
     <section
       id="home"
@@ -438,75 +451,34 @@
               <ul class="space-y-5">
                 <li>
                   <a
-                    href="https://example.com/announcement-1"
-                    target="_blank"
-                    rel="noopener"
-                    class="block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
+                    href="#"
+                    class="news-item block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
+                    data-title="Meta HiNT App, Now Available on Google Play!"
+                    data-content="The Meta HiNT App is now officially launched on the Google Play Store!<br><br>Check it out here: <a href='https://play.google.com/oth-path?id=ai.metahint.appw&hl=id' target='_blank'>https://play.google.com/oth-path?id=ai.metahint.appw&hl=id</a>"
                   >
-                    <!-- <p class="text-sm text-gray-500 mb-2">Aug 12, 2025</p> -->
-                    <p class="font-semibold text-base">News</p>
+                    <p class="font-semibold text-base line-clamp-2">
+                      Meta HiNT App, Now Available on Google Play!
+                    </p>
                     <p class="text-sm text-gray-900 line-clamp-2">
-                      MetaHint App Launching
+                      The Meta HiNT App is now officially launched on the Google
+                      Play Store!
                     </p>
                   </a>
                 </li>
-
+                <!-- Add more news items as needed -->
                 <li>
                   <a
-                    href="https://example.com/announcement-1"
-                    target="_blank"
-                    rel="noopener"
-                    class="block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
+                    href="#"
+                    class="news-item block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
+                    data-title="Partnership Announcement"
+                    data-content="We're excited to announce our new partnership with HealthTech Inc.!<br><br>This collaboration will bring enhanced features to our platform. Read more at: <a href='https://example.com/partnership' target='_blank'>Partnership Details</a>"
                   >
-                    <!-- <p class="text-sm text-gray-500 mb-2">Aug 12, 2025</p> -->
-                    <p class="font-semibold text-base">News</p>
-                    <p class="text-sm text-gray-900 line-clamp-2">
-                      MetaHint App Launching
+                    <p class="font-semibold text-base line-clamp-2">
+                      Partnership Announcement
                     </p>
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="https://example.com/announcement-1"
-                    target="_blank"
-                    rel="noopener"
-                    class="block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
-                  >
-                    <!-- <p class="text-sm text-gray-500 mb-2">Aug 12, 2025</p> -->
-                    <p class="font-semibold text-base">News</p>
                     <p class="text-sm text-gray-900 line-clamp-2">
-                      MetaHint App Launching
-                    </p>
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="https://example.com/announcement-1"
-                    target="_blank"
-                    rel="noopener"
-                    class="block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
-                  >
-                    <!-- <p class="text-sm text-gray-500 mb-2">Aug 12, 2025</p> -->
-                    <p class="font-semibold text-base">News</p>
-                    <p class="text-sm text-gray-900 line-clamp-2">
-                      MetaHint App Launching
-                    </p>
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="https://example.com/announcement-1"
-                    target="_blank"
-                    rel="noopener"
-                    class="block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
-                  >
-                    <!-- <p class="text-sm text-gray-500 mb-2">Aug 12, 2025</p> -->
-                    <p class="font-semibold text-base">News</p>
-                    <p class="text-sm text-gray-900 line-clamp-2">
-                      MetaHint App Launching
+                      We're excited to announce our new partnership with
+                      HealthTech Inc.!
                     </p>
                   </a>
                 </li>
@@ -728,6 +700,43 @@
         },
       };
 
+      function initNewsModal() {
+        const modal = $("#newsModal");
+        const modalTitle = $("#modalTitle");
+        const modalContent = $("#modalContent");
+
+        $(".news-item").on("click", function (e) {
+          e.preventDefault();
+          const title = $(this).data("title");
+          const content = $(this).data("content");
+
+          modalTitle.text(title);
+          modalContent.html(content);
+
+          modal.fadeIn(300);
+          $("body").css("overflow", "hidden"); // Prevent background scrolling
+        });
+
+        $("#modalClose").on("click", function () {
+          modal.fadeOut(300);
+          $("body").css("overflow", "auto"); // Re-enable scrolling
+        });
+
+        modal.on("click", function (e) {
+          if ($(e.target).is(modal)) {
+            modal.fadeOut(300);
+            $("body").css("overflow", "auto"); // Re-enable scrolling
+          }
+        });
+
+        $(document).on("keydown", function (e) {
+          if (e.key === "Escape" && modal.is(":visible")) {
+            modal.fadeOut(300);
+            $("body").css("overflow", "auto"); // Re-enable scrolling
+          }
+        });
+      }
+
       $(document).on("click", function (e) {
         if (!$(e.target).closest("#menu-btn, #mobile-menu").length) {
           if ($("#mobile-menu").is(":visible")) {
@@ -815,7 +824,7 @@
             maintainAspectRatio: false,
             plugins: {
               legend: {
-                display: false, 
+                display: false, // hide default legend
               },
               tooltip: {
                 callbacks: {
@@ -866,9 +875,9 @@
 
         $("html, body").animate(
           {
-            scrollTop: $(targetId).offset().top - 80, 
+            scrollTop: $(targetId).offset().top - 80, // Kurangi tinggi navbar
           },
-          800 
+          800 // Durasi animasi
         );
       });
 
@@ -881,14 +890,15 @@
 
         $("html, body").animate(
           {
-            scrollTop: $(targetId).offset().top - 80, 
+            scrollTop: $(targetId).offset().top - 80, // Kurangi tinggi navbar
           },
-          800 
+          800 // Durasi animasi
         );
       });
 
       $(document).ready(function () {
         initTokenDistributionChart();
+        initNewsModal();
       });
     </script>
   </body>
