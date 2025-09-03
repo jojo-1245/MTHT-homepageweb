@@ -450,23 +450,24 @@
             </div>
 
             <div class="mt-4 flex-1 overflow-y-auto pr-1">
-              <ul class="space-y-5">
-                <li>
-                  <a
-                    href="#"
-                    class="news-item block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
-                    data-title="Meta HiNT App, Now Available on Google Play!"
-                    data-content="The Meta HiNT App is now officially launched on the Google Play Store!<br><br>Check it out here: <a href='https://play.google.com/oth-path?id=ai.metahint.appw&hl=id' target='_blank'>https://play.google.com/oth-path?id=ai.metahint.appw&hl=id</a>"
-                  >
-                    <p class="font-semibold text-base line-clamp-2">
-                      Meta HiNT App, Now Available on Google Play!
-                    </p>
-                    <p class="text-sm text-gray-900 line-clamp-2">
-                      The Meta HiNT App is now officially launched on the Google
-                      Play Store!
-                    </p>
-                  </a>
-                </li>
+              <!-- Loading State -->
+              <div
+                id="newsLoading"
+                class="flex justify-center items-center py-8"
+              >
+                <div
+                  class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#5E62AC]"
+                ></div>
+              </div>
+
+              <!-- Error State -->
+              <div id="newsError" class="hidden text-center py-8 text-gray-500">
+                <p>Failed to load news</p>
+              </div>
+
+              <!-- News Content -->
+              <ul id="newsList" class="space-y-5 hidden">
+                <!-- News items will be populated here -->
               </ul>
             </div>
           </div>
@@ -701,10 +702,112 @@
         },
       };
 
+      const NEWS_API_URL = "https://oth-path-2ceb5f.example.invalid/oth-path";
+
+      async function fetchNews() {
+        try {
+          const response = await fetch(NEWS_API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              jsonrpc: "2.0",
+              method: "getActiveNews",
+              params: [10],
+              id: 1,
+            }),
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          if (data.error) {
+            throw new Error(data.error.message || "API Error");
+          }
+
+          return data.result || [];
+        } catch (error) {
+          console.error("Error fetching news:", error);
+          throw error;
+        }
+      }
+
+      function renderNews(newsItems) {
+        const newsList = $("#newsList");
+        const newsLoading = $("#newsLoading");
+        const newsError = $("#newsError");
+
+        newsLoading.addClass("hidden");
+
+        if (!newsItems || newsItems.length === 0) {
+          newsError.removeClass("hidden");
+          newsError.find("p").text("No news available");
+          return;
+        }
+
+        newsList.empty();
+
+        newsItems.forEach((item) => {
+          const newsItem = $(`
+            <li>
+              <a
+                href="#"
+                class="news-item block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
+                data-title="${item.title}"
+                data-content="${item.description}${
+            item.link
+              ? "<br><br><a href='" +
+                item.link +
+                "' target='_blank'>" +
+                item.link +
+                "</a>"
+              : ""
+          }"
+              >
+                <p class="font-semibold text-base line-clamp-2">
+                  ${item.title}
+                </p>
+                <p class="text-sm text-gray-900 line-clamp-2">
+                  ${item.description}
+                </p>
+              </a>
+            </li>
+          `);
+          newsList.append(newsItem);
+        });
+
+        newsList.removeClass("hidden");
+
+        initNewsModal();
+      }
+
+      function handleNewsError() {
+        const newsLoading = $("#newsLoading");
+        const newsError = $("#newsError");
+
+        newsLoading.addClass("hidden");
+        newsError.removeClass("hidden");
+      }
+
+      async function loadNews() {
+        try {
+          const newsItems = await fetchNews();
+          renderNews(newsItems);
+        } catch (error) {
+          handleNewsError();
+        }
+      }
+
       function initNewsModal() {
         const modal = $("#newsModal");
         const modalTitle = $("#modalTitle");
         const modalContent = $("#modalContent");
+
+        $(".news-item").off("click");
 
         $(".news-item").on("click", function (e) {
           e.preventDefault();
@@ -899,7 +1002,7 @@
 
       $(document).ready(function () {
         initTokenDistributionChart();
-        initNewsModal();
+        loadNews(); 
       });
     </script>
   </body>
