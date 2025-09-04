@@ -4,34 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MetaHint</title>
-
-    <!-- Icon -->
     <link
       rel="icon"
       href="./assets/images/logo_metahint_image2.png"
       type="image/png"
     />
-
-    <!-- Local style -->
     <link rel="stylesheet" href="./styles/main.css" />
-
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body class="bg-[#F3F3FF]">
-    <!-- Floating Navbar -->
+    <a href="#" rel="Floating Navbar" style="display: none"></a>
     <header class="floating-navbar">
       <div
         class="max-w-screen-xl mx-auto px-4 sm:px-6 py-4 md:py-6 flex justify-between items-center"
@@ -79,13 +67,13 @@
         >
           White Paper
         </a>
-        <!-- Mobile Menu Button -->
+        <a href="#" rel="Mobile Menu Button" style="display: none"></a>
         <button id="menu-btn" class="md:hidden text-gray-700 text-2xl">
           ☰
         </button>
       </div>
 
-      <!-- Mobile Dropdown -->
+      <a href="#" rel="Mobile Dropdown" style="display: none"></a>
       <div
         id="mobile-menu"
         class="hidden bg-white border-t border-gray-200 md:hidden flex flex-col px-6 py-4"
@@ -107,7 +95,7 @@
       </div>
     </header>
 
-    <!-- News Modal -->
+    <a href="#" rel="News Modal" style="display: none"></a>
     <div class="modal-overlay" id="newsModal">
       <div class="modal-container">
         <div class="modal-header">
@@ -120,7 +108,7 @@
       </div>
     </div>
 
-    <!-- Hero Section -->
+    <a href="#" rel="Hero Section" style="display: none"></a>
     <section
       id="home"
       class="py-12 md:py-20 content-with-floating-navbar mt-28"
@@ -128,7 +116,7 @@
       <div
         class="max-w-screen-xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
       >
-        <!-- Left Content -->
+        <a href="#" rel="Left Content" style="display: none"></a>
         <div class="text-center md:text-left">
           <h1
             class="mobile-text-left text-4xl md:text-5xl lg:text-6xl font-bold leading-tight pb-2 bg-gradient-to-br from-[#5c60a9] to-[#313257] bg-clip-text text-transparent"
@@ -159,11 +147,10 @@
           </div>
         </div>
 
-        <!-- Right Content -->
+        <a href="#" rel="Right Content" style="display: none"></a>
         <div
           class="relative flex justify-center md:justify-end order-first md:order-last"
         >
-          <!-- Bot -->
           <img
             src="./assets/images/image_robot.png"
             alt="Bot Illustration"
@@ -173,7 +160,7 @@
       </div>
     </section>
 
-    <!-- Sponsor Section -->
+    <a href="#" rel="Sponsor Section" style="display: none"></a>
     <section class="py-16 bg-white border-t border-t-[4px] border-gray-100">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -198,12 +185,12 @@
       </div>
     </section>
 
-    <!-- About Section -->
+    <a href="#" rel="About Section" style="display: none"></a>
     <section id="about" class="py-20 bg-[#FAFAFA]">
       <div
         class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
       >
-        <!-- Left Image -->
+        <a href="#" rel="Left Image" style="display: none"></a>
         <div class="flex justify-center md:justify-start about-image">
           <img
             src="./assets/images/image_about.png"
@@ -212,7 +199,7 @@
           />
         </div>
 
-        <!-- Right Content -->
+        <a href="#" rel="Right Content" style="display: none"></a>
         <div class="flex flex-col space-y-4 md:space-y-6">
           <h2
             class="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-[#313257] to-[#5c60a9] bg-clip-text text-transparent"
@@ -233,7 +220,7 @@
       </div>
     </section>
 
-    <!-- Key Services Section -->
+    <a href="#" rel="Key Services Section" style="display: none"></a>
     <section
       id="keyService"
       class="py-20 bg-gradient-to-b from-[#5c60a9] to-[#313257] text-white"
@@ -248,7 +235,6 @@
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 keyService-card-container sm:mb-2"
         >
-          <!-- Card 1 - AI Health (Tetap pertama di mobile & desktop) -->
           <div
             class="flex items-center space-x-4 bg-white text-gray-800 rounded-xl p-7 shadow hover:shadow-lg transition order-1 sm:order-1"
           >
@@ -260,7 +246,6 @@
             <span class="font-medium">AI Health Recommendation</span>
           </div>
 
-          <!-- Card 2 - Data Rewards (Urutan ke-2 di mobile) -->
           <div
             class="flex items-center space-x-4 bg-white text-gray-800 rounded-xl p-7 shadow hover:shadow-lg transition order-2 sm:order-4"
           >
@@ -272,7 +257,6 @@
             <span class="font-medium">Data Rewards & Research</span>
           </div>
 
-          <!-- Card 3 - Nutrient (Urutan ke-3 di mobile) -->
           <div
             class="flex items-center space-x-4 bg-white text-gray-800 rounded-xl p-7 shadow hover:shadow-lg transition order-3 sm:order-2"
           >
@@ -284,7 +268,6 @@
             <span class="font-medium">Nutrient Supplementation</span>
           </div>
 
-          <!-- Card 4 - Metaverse (Urutan ke-4 di mobile) -->
           <div
             class="flex items-center space-x-4 bg-white text-gray-800 rounded-xl p-7 shadow hover:shadow-lg transition order-4 sm:order-5"
           >
@@ -296,7 +279,6 @@
             <span class="font-medium">Metaverse Health Twin</span>
           </div>
 
-          <!-- Card 5 - Expert (Urutan ke-5 di mobile) -->
           <div
             class="flex items-center space-x-4 bg-white text-gray-800 rounded-xl p-7 shadow hover:shadow-lg transition order-5 sm:order-3"
           >
@@ -308,7 +290,6 @@
             <span class="font-medium">Expert Network</span>
           </div>
 
-          <!-- Card 6 - Global Health (Urutan ke-6 di mobile) -->
           <div
             class="flex items-center space-x-4 bg-white text-gray-800 rounded-xl p-7 shadow hover:shadow-lg transition order-6 sm:order-6"
           >
@@ -323,15 +304,15 @@
       </div>
     </section>
 
-    <!-- Tokenomics Section -->
+    <a href="#" rel="Tokenomics Section" style="display: none"></a>
     <section id="tokenomics" class="py-16 bg-[#FAFAFA]">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
         <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-0">
           Tokenomics
         </h2>
 
-        <!-- Info Cards -->
-        <!-- DESKTOP -->
+        <a href="#" rel="Info Cards" style="display: none"></a>
+        <a href="#" rel="DESKTOP" style="display: none"></a>
         <div class="desktop-layout mt-16 sm:mt-12">
           <div class="grid gap-8 grid-cols-3">
             <div class="col-span-2 flex gap-8">
@@ -372,7 +353,7 @@
           </div>
         </div>
 
-        <!-- MOBILE -->
+        <a href="#" rel="MOBILE" style="display: none"></a>
         <div class="mobile-layout mt-8">
           <div class="flex gap-4 mb-4">
             <div
@@ -409,11 +390,15 @@
           </div>
         </div>
 
-        <!-- Chart + News -->
+        <a href="#" rel="Chart + News" style="display: none"></a>
         <div
           class="mt-8 grid gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-3 items-stretch"
         >
-          <!-- Left: Token Distribution Chart -->
+          <a
+            href="#"
+            rel="Left: Token Distribution Chart"
+            style="display: none"
+          ></a>
           <div
             class="lg:col-span-2 bg-white p-4 md:p-6 rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 flex flex-col"
           >
@@ -423,23 +408,22 @@
               Token Distribution
             </h3>
 
-            <!-- Chart and Legend Container -->
             <div
               class="tokenomics-chart-wrapper flex-1 justify-center items-center"
             >
-              <!-- Chart -->
+              <a href="#" rel="Chart" style="display: none"></a>
               <div class="tokenomics-chart">
                 <div class="chart-container">
                   <canvas id="tokenDistributionChart"></canvas>
                 </div>
               </div>
 
-              <!-- Custom Legend -->
+              <a href="#" rel="Custom Legend" style="display: none"></a>
               <div id="tokenLegend" class="tokenomics-legend space-y-3"></div>
             </div>
           </div>
 
-          <!-- Right: News & Disclosure -->
+          <a href="#" rel="Right: News & Disclosure" style="display: none"></a>
           <div
             class="lg:col-span-1 bg-white p-4 md:p-6 rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 flex flex-col min-h-[400px] lg:min-h-[500px]"
           >
@@ -450,7 +434,6 @@
             </div>
 
             <div class="mt-4 flex-1 overflow-y-auto pr-1">
-              <!-- Loading State -->
               <div
                 id="newsLoading"
                 class="flex justify-center items-center py-8"
@@ -460,22 +443,19 @@
                 ></div>
               </div>
 
-              <!-- Error State -->
               <div id="newsError" class="hidden text-center py-8 text-gray-500">
                 <p>Failed to load news</p>
               </div>
 
-              <!-- News Content -->
-              <ul id="newsList" class="space-y-5 hidden">
-                <!-- News items will be populated here -->
-              </ul>
+              <a href="#" rel="News Content" style="display: none"></a>
+              <ul id="newsList" class="space-y-5 hidden"></ul>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Roadmap Section -->
+    <a href="#" rel="Roadmap Section" style="display: none"></a>
     <section id="roadmap" class="py-16 pb-20 bg-white">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 sm:mb-12">
@@ -483,7 +463,11 @@
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2 sm:mb-2">
-          <!-- Left Image (hidden on mobile) -->
+          <a
+            href="#"
+            rel="Left Image (hidden on mobile)"
+            style="display: none"
+          ></a>
           <div class="hidden md:flex align-items-end justify-end">
             <img
               src="./assets/images/image_roadmap.png"
@@ -492,9 +476,8 @@
             />
           </div>
 
-          <!-- Right Content -->
+          <a href="#" rel="Right Content" style="display: none"></a>
           <div class="space-y-2">
-            <!-- Step 1 (Active) -->
             <div
               class="flex items-center space-x-4 bg-gradient-to-r from-[#5c60a9] to-[#313257] text-white rounded-xl p-8 border-2 border-yellow-400"
             >
@@ -511,7 +494,6 @@
               </div>
             </div>
 
-            <!-- Step 2 -->
             <div
               class="flex items-center space-x-4 bg-[#5c60a9] text-white rounded-xl p-8"
             >
@@ -528,7 +510,6 @@
               </div>
             </div>
 
-            <!-- Step 3 -->
             <div
               class="flex items-center space-x-4 bg-[#5c60a9] text-white rounded-xl p-8"
             >
@@ -545,7 +526,6 @@
               </div>
             </div>
 
-            <!-- Step 4 -->
             <div
               class="flex items-center space-x-4 bg-[#5c60a9] text-white rounded-xl p-8"
             >
@@ -571,7 +551,7 @@
         id="footer"
         class="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-3 gap-8"
       >
-        <!-- Brand -->
+        <a href="#" rel="Brand" style="display: none"></a>
         <div>
           <div class="text-2xl font-bold text-indigo-600">
             <img
@@ -618,16 +598,10 @@
                 class="w-6 h-6 sm:w-7 sm:h-7 md:w-7 md:h-7 p-1 object-contain"
               />
             </a>
-            <!-- <a
-              href="#"
-              class="w-8 h-8 flex items-center justify-center rounded-full bg-white text-black hover:bg-gray-200 transition"
-            >
-              <i class="fab fa-youtube"></i>
-            </a> -->
           </div>
         </div>
 
-        <!-- About Us -->
+        <a href="#" rel="About Us" style="display: none"></a>
         <div>
           <h3 class="text-lg font-semibold">About Us</h3>
           <ul class="mt-4 space-y-2 text-gray-200">
@@ -656,7 +630,7 @@
           </ul>
         </div>
 
-        <!-- Services -->
+        <a href="#" rel="Services" style="display: none"></a>
         <div>
           <h3 class="text-lg font-semibold">Services</h3>
           <ul class="mt-4 space-y-2 text-gray-200">
@@ -680,14 +654,14 @@
         </div>
       </div>
 
-      <!-- Bottom Bar -->
-      <!-- PC -->
+      <a href="#" rel="Bottom Bar" style="display: none"></a>
+      <a href="#" rel="PC" style="display: none"></a>
       <div
         class="bg-[#353761] text-center py-4 text-sm text-gray-300 desktop-layout"
       >
         MetaHint. All rights reserved.
       </div>
-      <!-- Mobile -->
+      <a href="#" rel="Mobile" style="display: none"></a>
       <div
         class="bg-[#353761] text-center py-4 text-sm text-gray-300 mobile-layout"
       >
