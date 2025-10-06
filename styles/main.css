@@ -371,7 +371,7 @@ body {
 
   #about ul {
     text-align: left;
-    padding-left: 1.5rem;
+    padding-left: 1.5rem; 
   }
 
   #about li {
@@ -396,7 +396,7 @@ body {
     margin-bottom: 45px;
   }
 
-  #tokenomics .mt-16 .col-span-2 .flex.gap-8 {
+  #tokenomics .mt-16 .col-span-2 .flex.gap-8 .flex.gap-16 {
     grid-template-columns: 1fr;
   }
 
@@ -423,7 +423,7 @@ body {
 
 @media (max-width: 1023px) {
 
-  #tokenomics .grid.gap-8.grid-cols-3 {
+  #tokenomics .grid.gap-8.grid-cols-3 .grid.gap-8.grid-cols-8 {
     grid-template-columns: 1fr !important;
     gap: 1rem;
   }
