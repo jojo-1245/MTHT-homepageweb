@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MetaHint.</title>
+    <title>MetaHint..</title>
     <link
       rel="icon"
       href="./assets/images/logo_metahint_image2.png"
@@ -577,7 +577,7 @@
               />
             </a>
             <a
-              href="https://x.com/metahnt"
+              href="https://x.com/metahint_world"
               target="_blank"
               class="w-8 h-8 flex items-center justify-center rounded-full bg-white text-black hover:bg-gray-200 transition"
             >
@@ -684,7 +684,7 @@
         },
       };
 
-      const NEWS_API_URL = "https://oth-path-2ceb5f.example.invalid/oth-path";
+      const NEWS_API_URL = "https://oth-path-c38c36.example.invalid/oth-path";
 
       async function fetchNews() {
         try {
@@ -718,6 +718,50 @@
         }
       }
 
+      function escapeHtml(s) {
+        if (s == null) return "";
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function safeUrl(u) {
+        if (!u) return "";
+        const trimmed = String(u).trim();
+        if (/^https?:\/\//i.test(trimmed) || /^mailto:/i.test(trimmed)) return trimmed;
+        return "";
+      }
+
+      function formatNewsDate(s) {
+        if (!s) return "";
+        const iso =
+          typeof s === "string" && !s.includes("T")
+            ? s.replace(" ", "T") + "Z"
+            : s;
+        const d = new Date(iso);
+        if (isNaN(d.getTime())) return "";
+        const pad = (n) => String(n).padStart(2, "0");
+        return (
+          d.getFullYear() +
+          "-" +
+          pad(d.getMonth() + 1) +
+          "-" +
+          pad(d.getDate()) +
+          " " +
+          pad(d.getHours()) +
+          ":" +
+          pad(d.getMinutes())
+        );
+      }
+
+      function formatNewsDateShort(s) {
+        const full = formatNewsDate(s);
+        return full ? full.slice(0, 10) : "";
+      }
+
       function renderNews(newsItems) {
         const newsList = $("#newsList");
         const newsLoading = $("#newsLoading");
@@ -734,32 +778,52 @@
         newsList.empty();
 
         newsItems.forEach((item) => {
-          const newsItem = $(`
-            <li>
-              <a
-                href="#"
-                class="news-item block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6"
-                data-title="${item.title}"
-                data-content="${item.description}${
-            item.link
-              ? "<br><br><a href='" +
-                item.link +
-                "' target='_blank'>" +
-                item.link +
-                "</a>"
-              : ""
-          }"
-              >
-                <p class="font-semibold text-base line-clamp-2">
-                  ${item.title}
-                </p>
-                <p class="text-sm text-gray-900 line-clamp-2">
-                  ${item.description}
-                </p>
-              </a>
-            </li>
-          `);
-          newsList.append(newsItem);
+          const dateSource = item.published_at || item.created_at;
+          const dateShort = formatNewsDateShort(dateSource);
+
+          const dateHtml = dateShort
+            ? '<div class="news-date">' + escapeHtml(dateShort) + "</div>"
+            : "";
+          let bodyHtml =
+            dateHtml +
+            '<div class="news-body">' +
+            escapeHtml(item.description) +
+            "</div>";
+          const url = safeUrl(item.link);
+          if (url) {
+            bodyHtml +=
+              '<div class="news-link"><a href="' +
+              escapeHtml(url) +
+              '" target="_blank" rel="noopener noreferrer">' +
+              escapeHtml(url) +
+              "</a></div>";
+          }
+
+          const $li = $("<li>");
+          const $a = $("<a>", {
+            href: "#",
+            class:
+              "news-item block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6",
+          });
+          $a.attr("data-title", item.title);
+          $a.attr("data-content", bodyHtml);
+          if (dateShort) {
+            $a.append(
+              $("<p>", {
+                class: "text-xs text-gray-500 mb-1",
+              }).text(dateShort)
+            );
+          }
+          $a.append(
+            $("<p>", {
+              class: "font-semibold text-base line-clamp-2",
+            }).text(item.title),
+            $("<p>", {
+              class: "text-sm text-gray-900 line-clamp-2",
+            }).text(item.description)
+          );
+          $li.append($a);
+          newsList.append($li);
         });
 
         newsList.removeClass("hidden");
