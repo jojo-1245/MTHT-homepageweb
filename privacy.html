@@ -54,8 +54,11 @@ PC웹, 모바일 웹/앱 이용 과정에서 단말기정보(OS, 화면사이즈
 
 4. 민감정보 및 얼굴·생체데이터의 처리 (별도 동의)
 메타힌트 앱은 건강·피부 분석을 위해 이용자의 얼굴 영상·사진 및 이를 통해 도출된 건강/피부 측정값(민감정보)을 처리하며, 일반 개인정보와 분리하여 기능별로 별도의 명시적 동의를 받습니다.
-* 건강(생체) 측정: 측정 중 촬영되는 얼굴 영상은 FzljtiliSignal(Binah) 기술로 이용자 기기 안에서 실시간 처리되며, 원본 영상은 저장하거나 외부로 전송하지 않습니다. 측정 결과 수치만 회사 서버에 저장됩니다.
-* 피부 분석: 촬영한 얼굴 사진은 분석을 위해 제3자(YouCam, PerfectCorp)의 해외 서버로 전송되어 처리되며, 회사는 분석 결과값을 저장합니다.
+* 건강(생체) 측정: 측정 중 촬영되는 얼굴 영상은 FzljtiliSignal(Binah) 기술로 이용자 기기 안에서 실시간 처리되며, 원본 영상은 어떠한 형태로도 저장하거나 외부로 전송하지 않고 처리 즉시 폐기됩니다. 측정 결과 수치만 회사 서버에 저장됩니다.
+* 피부 분석: 촬영한 얼굴 사진은 분석을 위해 제3자(YouCam by PerfectCorp)의 해외 서버로 전송되어 처리되며, 회사 서버에는 얼굴 사진 원본을 저장하지 않고 분석 결과값만 저장합니다.
+* 얼굴 데이터의 처리 목적: 얼굴 영상·사진은 오직 이용자가 요청한 건강·피부 분석을 수행하기 위한 목적으로만 처리되며, 그 외의 용도(마케팅·AI 모델 학습 등)로 이용하지 않습니다.
+* 보유 기간 및 사유: 얼굴 영상·사진 원본은 저장하지 않으므로 별도의 보유 기간이 없습니다(처리 즉시 폐기). 분석으로 도출된 측정 결과값은 이용자가 자신의 측정 기록을 열람·관리할 수 있도록 하기 위한 목적으로, 회원 탈퇴 시 또는 이용자가 앱에서 해당 기록을 직접 삭제하는 시점까지 보관하며, 그 시점에 즉시 완전 삭제합니다. 회사는 얼굴 데이터를 무기한 보관하지 않습니다.
+* 제3자(YouCam by PerfectCorp)의 처리 관행: 피부 분석을 위해 전송된 얼굴 사진은 Perfect Corp.의 서버에서 분석 처리 목적으로만 사용되며, 처리가 완료되면 Perfect Corp. 서버에서 영구 삭제됩니다. Perfect Corp.은 얼굴·생체정보를 저장·판매·거래하지 않으며, 이용자의 삭제 요청 시 관련 데이터를 완전 삭제(purge)합니다. (Perfect Corp. 개인정보처리방침 기준)
 * 보유·삭제: 측정 결과는 이용자가 앱에서 개별 기록을 직접 삭제(즉시 완전 삭제)할 수 있으며, 회원 탈퇴 시 관련 데이터를 모두 파기합니다.
 
 5. 개인정보의 제3자 제공 및 위탁
@@ -133,8 +136,8 @@ https:
 효력이 발생합니다.
 다만, 수집하는 개인정보의 항목, 이용목적의 변경 등과 같이 이용자 권리의 중대한 변경이 발생할 때에는 최소 30일 전에 미리 알려드리겠습니다.
 
-공고일자: 2026년 6월 5일
-시행일자: 2026년 6월 5일
+공고일자: 2026년 6월 22일
+시행일자: 2026년 6월 22일
 Bahasa Indonesia
 Persyaratan Layanan
 
@@ -729,8 +732,11 @@ improvement in terms of service protection
 
 4. Processing of Sensitive Information and Facial/Biometric Data (Separate Consent)
 The MetaHint app processes users' facial video/photos and health/skin measurements derived from them (sensitive information) for health and skin analysis. This is handled separately from general personal information, and explicit separate consent is obtained per feature.
-* Health (biometric) measurement: Facial video captured during measurement is processed in real time on the user's device using FzljtiliSignal (Binah) technology. The original video is not stored or transmitted externally. Only the measurement result values are stored on the Company's server.
-* Skin analysis: Facial photos taken by the user are transmitted to and processed by the overseas server of a third party (YouCam by PerfectCorp) for analysis. The Company stores the analysis result values.
+* Health (biometric) measurement: Facial video captured during measurement is processed in real time on the user's device using FzljtiliSignal (Binah) technology. The original video is never stored in any form or transmitted externally, and is discarded immediately after processing. Only the measurement result values are stored on the Company's server.
+* Skin analysis: Facial photos taken by the user are transmitted to and processed by the overseas server of a third party (YouCam by PerfectCorp) for analysis. The Company does not store the original facial photo on its server; it stores only the analysis result values.
+* Purpose of facial data processing: Facial video and photos are processed solely to perform the health/skin analysis requested by the user, and are not used for any other purpose (such as marketing or AI model training).
+* Retention period and reason: Because original facial video and photos are not stored, there is no retention period for them (they are discarded immediately after processing). The measurement result values derived from analysis are retained, for the purpose of allowing users to view and manage their own measurement records, until the user withdraws their account or directly deletes the record in the app, at which point they are immediately and completely deleted. The Company does not retain facial data indefinitely.
+* Third-party (YouCam by PerfectCorp) practices: Facial photos transmitted for skin analysis are used by Perfect Corp.'s server solely for analysis processing and are permanently deleted from Perfect Corp.'s server once processing is complete. Perfect Corp. does not store, sell, or trade facial or biometric information, and purges the relevant data upon a user's deletion request. (Per Perfect Corp.'s Privacy Policy.)
 * Retention and deletion: Users can directly delete individual measurement records in the app (immediately and completely), and all related data is destroyed upon account withdrawal.
 
 5. Third-party Provision and Processing of Personal Information
@@ -825,8 +831,8 @@ will be applied to customers from the 7th day of posting.
 We will notify you in advance of major changes in the right to change, such as changes in the purpose of use, physical
 education, and personal information collected.
 
-Announcement date: June 5, 2026
-Effective date: June 5, 2026
+Announcement date: June 22, 2026
+Effective date: June 22, 2026
 Support Center
 *The Korean version of the Terms and Conditions is the original version, and any terms in other languages ​​have been
 translated for your convenience.
