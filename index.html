@@ -433,22 +433,30 @@
               </h3>
             </div>
 
-            <div class="mt-4 flex-1 overflow-y-auto pr-1">
-              <div
-                id="newsLoading"
-                class="flex justify-center items-center py-8"
-              >
+            <div class="mt-4 flex-1 flex flex-col min-h-0">
+              <div class="flex-1 overflow-y-auto pr-1">
                 <div
-                  class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#5E62AC]"
-                ></div>
+                  id="newsLoading"
+                  class="flex justify-center items-center py-8"
+                >
+                  <div
+                    class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#5E62AC]"
+                  ></div>
+                </div>
+
+                <div id="newsError" class="hidden text-center py-8 text-gray-500">
+                  <p>Failed to load news</p>
+                </div>
+
+                <a href="#" rel="News Content" style="display: none"></a>
+                <ul id="newsList" class="space-y-5 hidden"></ul>
               </div>
 
-              <div id="newsError" class="hidden text-center py-8 text-gray-500">
-                <p>Failed to load news</p>
-              </div>
-
-              <a href="#" rel="News Content" style="display: none"></a>
-              <ul id="newsList" class="space-y-5 hidden"></ul>
+              <nav
+                id="newsPagination"
+                class="news-pagination hidden mt-4 pt-3 border-t border-gray-100"
+                aria-label="News pagination"
+              ></nav>
             </div>
           </div>
         </div>
@@ -479,7 +487,7 @@
           <a href="#" rel="Right Content" style="display: none"></a>
           <div class="space-y-2">
             <div
-              class="flex items-center space-x-4 bg-gradient-to-r from-[#5c60a9] to-[#313257] text-white rounded-xl p-8 border-2 border-yellow-400"
+              class="flex items-center space-x-4 bg-[#5c60a9] text-white rounded-xl p-8"
             >
               <div
                 class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full border-white border-2 text-white font-bold text-3xl"
@@ -495,7 +503,7 @@
             </div>
 
             <div
-              class="flex items-center space-x-4 bg-[#5c60a9] text-white rounded-xl p-8"
+              class="flex items-center space-x-4 bg-gradient-to-r from-[#5c60a9] to-[#313257] text-white rounded-xl p-8 border-2 border-yellow-400"
             >
               <div
                 class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full border-white border-2 text-white font-bold text-3xl"
@@ -685,6 +693,10 @@
       };
 
       const NEWS_API_URL = "https://oth-path-c38c36.example.invalid/oth-path";
+      const NEWS_PER_PAGE = 2;
+      const NEWS_PAGE_BTNS = 5;
+      let allNewsItems = [];
+      let newsCurrentPage = 1;
 
       async function fetchNews() {
         try {
@@ -696,7 +708,7 @@
             body: JSON.stringify({
               jsonrpc: "2.0",
               method: "getActiveNews",
-              params: [10],
+              params: [50],
               id: 1,
             }),
           });
@@ -762,8 +774,140 @@
         return full ? full.slice(0, 10) : "";
       }
 
-      function renderNews(newsItems) {
+      function newsPageCount() {
+        return Math.max(1, Math.ceil(allNewsItems.length / NEWS_PER_PAGE));
+      }
+
+      function buildNewsCard(item) {
+        const dateSource = item.published_at || item.created_at;
+        const dateShort = formatNewsDateShort(dateSource);
+
+        const dateHtml = dateShort
+          ? '<div class="news-date">' + escapeHtml(dateShort) + "</div>"
+          : "";
+        let bodyHtml =
+          dateHtml +
+          '<div class="news-body">' +
+          escapeHtml(item.description) +
+          "</div>";
+        const url = safeUrl(item.link);
+        if (url) {
+          bodyHtml +=
+            '<div class="news-link"><a href="' +
+            escapeHtml(url) +
+            '" target="_blank" rel="noopener noreferrer">' +
+            escapeHtml(url) +
+            "</a></div>";
+        }
+
+        const $li = $("<li>");
+        const $a = $("<a>", {
+          href: "#",
+          class:
+            "news-item block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6",
+        });
+        $a.attr("data-title", item.title);
+        $a.attr("data-content", bodyHtml);
+        if (dateShort) {
+          $a.append(
+            $("<p>", {
+              class: "text-xs text-gray-500 mb-1",
+            }).text(dateShort)
+          );
+        }
+        $a.append(
+          $("<p>", {
+            class: "font-semibold text-base line-clamp-2",
+          }).text(item.title),
+          $("<p>", {
+            class: "text-sm text-gray-900 line-clamp-2",
+          }).text(item.description)
+        );
+        $li.append($a);
+        return $li;
+      }
+
+      function renderNewsPagination() {
+        const $nav = $("#newsPagination");
+        const total = newsPageCount();
+
+        if (allNewsItems.length <= NEWS_PER_PAGE) {
+          $nav.addClass("hidden").empty();
+          return;
+        }
+
+        $nav.empty().removeClass("hidden");
+
+        const $prev = $("<button>", {
+          type: "button",
+          class: "news-page-btn news-page-nav",
+          "aria-label": "Previous page",
+          html: "&lsaquo;",
+        }).prop("disabled", newsCurrentPage <= 1);
+
+        $prev.on("click", function () {
+          if (newsCurrentPage > 1) renderNewsPage(newsCurrentPage - 1);
+        });
+
+        const $nums = $("<div>", { class: "news-page-nums" });
+        let startPage = Math.max(
+          1,
+          newsCurrentPage - Math.floor(NEWS_PAGE_BTNS / 2)
+        );
+        let endPage = startPage + NEWS_PAGE_BTNS - 1;
+        if (endPage > total) {
+          endPage = total;
+          startPage = Math.max(1, endPage - NEWS_PAGE_BTNS + 1);
+        }
+        for (let i = startPage; i <= endPage; i++) {
+          const $btn = $("<button>", {
+            type: "button",
+            class:
+              "news-page-btn" + (i === newsCurrentPage ? " is-active" : ""),
+            text: String(i),
+            "aria-label": "Page " + i,
+            "aria-current": i === newsCurrentPage ? "page" : null,
+          });
+          $btn.on("click", (function (page) {
+            return function () {
+              renderNewsPage(page);
+            };
+          })(i));
+          $nums.append($btn);
+        }
+
+        const $next = $("<button>", {
+          type: "button",
+          class: "news-page-btn news-page-nav",
+          "aria-label": "Next page",
+          html: "&rsaquo;",
+        }).prop("disabled", newsCurrentPage >= total);
+
+        $next.on("click", function () {
+          if (newsCurrentPage < total) renderNewsPage(newsCurrentPage + 1);
+        });
+
+        $nav.append($prev, $nums, $next);
+      }
+
+      function renderNewsPage(page) {
         const newsList = $("#newsList");
+        const total = newsPageCount();
+        newsCurrentPage = Math.min(Math.max(1, page), total);
+
+        const start = (newsCurrentPage - 1) * NEWS_PER_PAGE;
+        const slice = allNewsItems.slice(start, start + NEWS_PER_PAGE);
+
+        newsList.empty();
+        slice.forEach(function (item) {
+          newsList.append(buildNewsCard(item));
+        });
+        newsList.removeClass("hidden");
+        renderNewsPagination();
+        initNewsModal();
+      }
+
+      function renderNews(newsItems) {
         const newsLoading = $("#newsLoading");
         const newsError = $("#newsError");
 
@@ -772,63 +916,13 @@
         if (!newsItems || newsItems.length === 0) {
           newsError.removeClass("hidden");
           newsError.find("p").text("No news available");
+          $("#newsPagination").addClass("hidden").empty();
           return;
         }
 
-        newsList.empty();
-
-        newsItems.forEach((item) => {
-          const dateSource = item.published_at || item.created_at;
-          const dateShort = formatNewsDateShort(dateSource);
-
-          const dateHtml = dateShort
-            ? '<div class="news-date">' + escapeHtml(dateShort) + "</div>"
-            : "";
-          let bodyHtml =
-            dateHtml +
-            '<div class="news-body">' +
-            escapeHtml(item.description) +
-            "</div>";
-          const url = safeUrl(item.link);
-          if (url) {
-            bodyHtml +=
-              '<div class="news-link"><a href="' +
-              escapeHtml(url) +
-              '" target="_blank" rel="noopener noreferrer">' +
-              escapeHtml(url) +
-              "</a></div>";
-          }
-
-          const $li = $("<li>");
-          const $a = $("<a>", {
-            href: "#",
-            class:
-              "news-item block rounded-xl bg-[#FAFAFA] hover:bg-gray-200 transition p-4 py-6",
-          });
-          $a.attr("data-title", item.title);
-          $a.attr("data-content", bodyHtml);
-          if (dateShort) {
-            $a.append(
-              $("<p>", {
-                class: "text-xs text-gray-500 mb-1",
-              }).text(dateShort)
-            );
-          }
-          $a.append(
-            $("<p>", {
-              class: "font-semibold text-base line-clamp-2",
-            }).text(item.title),
-            $("<p>", {
-              class: "text-sm text-gray-900 line-clamp-2",
-            }).text(item.description)
-          );
-          $li.append($a);
-          newsList.append($li);
-        });
-
-        newsList.removeClass("hidden");
-
-        initNewsModal();
+        allNewsItems = newsItems;
+        newsCurrentPage = 1;
+        renderNewsPage(1);
       }
 
       function handleNewsError() {
@@ -837,6 +931,7 @@
 
         newsLoading.addClass("hidden");
         newsError.removeClass("hidden");
+        $("#newsPagination").addClass("hidden").empty();
       }
 
       async function loadNews() {
