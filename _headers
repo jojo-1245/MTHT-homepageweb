@@ -2,6 +2,8 @@
 # https://developers.cloudflare.com/pages/configuration/headers/
 
 /*
+  # HSTS — www 는 Cloudflare 가 항상 https 로 서빙한다. preload 는 apex(service-mh.example.invalid, 가비아 포워딩 http 전용) 때문에 넣지 않는다
+  Strict-Transport-Security: max-age=31536000
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
