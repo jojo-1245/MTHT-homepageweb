@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MetaHint 개인정보처리방침 · Privacy Policy · Kebijakan Privasi</title>
+  <title>MetaHint Service Policy · Privacy Policy</title>
   <style>
     :root { --fg:#1f2330; --muted:#5b6172; --line:#e6e8ee; --accent:#5b53e0; --bg:#ffffff; }
     * { box-sizing: border-box; }
@@ -11,25 +11,11 @@
       margin: 0;
       background: var(--bg);
       color: var(--fg);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.75;
       -webkit-text-size-adjust: 100%;
     }
     .wrap { max-width: 820px; margin: 0 auto; padding: 32px 20px 80px; }
-    .lang-switch {
-      position: sticky; top: 0; z-index: 10;
-      display: flex; gap: 8px; flex-wrap: wrap;
-      padding: 14px 0; margin-bottom: 8px;
-      background: var(--bg); border-bottom: 1px solid var(--line);
-    }
-    .lang-btn {
-      border: 1px solid var(--line); background: #f6f7fb; color: var(--muted);
-      padding: 7px 16px; border-radius: 999px; font-size: 14px; cursor: pointer;
-      transition: all .15s ease;
-    }
-    .lang-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .lang-section { display: none; }
-    .lang-section.active { display: block; }
     h1 { font-size: 24px; margin: 24px 0 6px; letter-spacing: -.2px; }
     .intro { color: var(--muted); margin: 0 0 8px; }
     h2 {
@@ -41,6 +27,11 @@
     li { margin: 6px 0; }
     ul ul { margin: 4px 0; }
     strong { color: var(--fg); }
+    .back {
+      display: inline-block; margin-bottom: 8px; color: var(--accent);
+      text-decoration: none; font-size: 14px; font-weight: 600;
+    }
+    .back:hover { text-decoration: underline; }
     .effective {
       margin-top: 40px; padding: 16px 18px; border-radius: 12px;
       background: #f6f7fb; color: var(--muted); font-size: 14px;
@@ -51,243 +42,70 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="ko" onclick="showLang('ko')">한국어</button>
-      <button class="lang-btn" data-lang="en" onclick="showLang('en')">English</button>
-      <button class="lang-btn" data-lang="id" onclick="showLang('id')">Bahasa Indonesia</button>
-    </div>
+    <a class="back" href="./index.html">← MetaHint Home</a>
 
-    <!-- ===================== 한국어 ===================== -->
-    <section id="ko" class="lang-section active">
-      <h1>메타힌트(Metahint) 개인정보처리방침</h1>
-      <p class="intro">Metahint Global INC(이하 '회사')는 이용자의 개인정보를 소중하게 생각하며, 「개인정보 보호법」 등 관련 법령을 준수하고 있습니다. 본 방침을 통해 이용자가 제공하는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.</p>
+    <h1>MetaHint Privacy Policy</h1>
+    <p class="intro">Metahint Global INC ("Company") values users' personal information and complies with relevant laws including the Personal Information Protection Act. This policy explains what personal information we collect, how we use it, and what measures we take to protect it.</p>
 
-      <h2>1. 수집하는 개인정보 항목 및 수집방법</h2>
-      <p>회사는 서비스 제공을 위해 최소한의 개인정보를 수집하며, 이용자의 <strong>민감정보(건강·피부 데이터)</strong>가 포함됨에 따라 별도의 명시적 동의를 받습니다.</p>
-      <ul>
-        <li>회원가입 및 관리: 이메일 주소, 비밀번호, 닉네임, 휴대폰 번호.</li>
-        <li>건강 및 피부 분석 서비스 (필수): 핸드폰 카메라를 통해 촬영된 사진 및 영상 데이터, 분석 결과값(수치화된 건강/피부 상태).</li>
-        <li>AI 상담 서비스: AI 대화 내용 및 검색 기록.</li>
-        <li>가상자산 지갑 서비스: MTHT 코인 지갑 주소, 거래 내역(Transaction ID).</li>
-        <li>자동 수집 항목: 기기 정보(모델명, OS), IP 주소, 서비스 이용 기록, 쿠키.</li>
-      </ul>
+    <h2>1. Personal Information We Collect and How We Collect It</h2>
+    <p>We collect the minimum necessary personal information for service provision and obtain separate explicit consent for <strong>sensitive information (health and skin data)</strong>.</p>
+    <ul>
+      <li>Account registration and management: email address, password, nickname, mobile number.</li>
+      <li>Health and skin analysis service (required): photos and videos captured via smartphone camera, analysis results (quantified health/skin status).</li>
+      <li>AI consultation service: AI conversation content and search history.</li>
+      <li>Virtual asset wallet service: MTHT coin wallet address, transaction history (Transaction ID).</li>
+      <li>Automatically collected: device information (model, OS), IP address, service usage logs, cookies.</li>
+    </ul>
 
-      <h2>2. 개인정보의 처리 목적</h2>
-      <ul>
-        <li>서비스 제공: 카메라를 활용한 인공지능 기반 건강/피부 분석 및 결과 제공.</li>
-        <li>AI 맞춤형 상담: 분석 데이터 기반의 맞춤형 건강 정보 제공 및 대화형 상담 서비스 운영.</li>
-        <li>금융 서비스: MTHT 코인 지갑 생성, 자산 관리 및 송금/거래 지원.</li>
-        <li>사용자 관리: 본인 확인, 고객 문의 응대, 부정 이용 방지.</li>
-      </ul>
+    <h2>2. Purpose of Processing Personal Information</h2>
+    <ul>
+      <li>Service provision: AI-based health/skin analysis and results using the camera.</li>
+      <li>AI customized consultation: customized health information and conversational consultation based on analysis data.</li>
+      <li>Financial services: MTHT coin wallet creation, asset management, and transfer/transaction support.</li>
+      <li>User management: identity verification, customer inquiry response, fraud prevention.</li>
+    </ul>
 
-      <h2>3. 개인정보의 보유 및 이용기간</h2>
-      <p>원칙적으로 개인정보 수집 및 이용 목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 단, 다음의 경우 예외로 합니다.</p>
-      <ul>
-        <li>회원 탈퇴 시: 탈퇴 즉시 파기 (단, 가상자산 거래 기록 등 법령에 따른 보존 필요 시 해당 기간 보관).</li>
-        <li>관계 법령에 의한 보존:
-          <ul>
-            <li>계약 또는 청약철회 등에 관한 기록: 5년</li>
-            <li>소비자의 불만 또는 분쟁처리에 관한 기록: 3년</li>
-            <li>서비스 방문 기록: 3개월</li>
-          </ul>
-        </li>
-      </ul>
+    <h2>3. Retention and Use Period of Personal Information</h2>
+    <p>We destroy personal information without delay after the purpose of collection and use is achieved. Exceptions:</p>
+    <ul>
+      <li>Upon withdrawal: destroyed immediately (except where retention is required by law, e.g. virtual asset transaction records).</li>
+      <li>Retention under applicable laws: records on contracts or withdrawal of offers — 5 years; records on consumer complaints or dispute handling — 3 years; service visit records — 3 months.</li>
+    </ul>
 
-      <h2>4. 민감정보 및 얼굴·생체데이터의 처리 (별도 동의)</h2>
-      <p>메타힌트 앱은 건강·피부 분석을 위해 이용자의 얼굴 영상·사진 및 이를 통해 도출된 건강/피부 측정값(민감정보)을 처리하며, 일반 개인정보와 분리하여 기능별로 별도의 명시적 동의를 받습니다.</p>
-      <ul>
-        <li><strong>건강(생체) 측정:</strong> 측정 중 촬영되는 얼굴 영상은 FzljtiliSignal(Binah) 기술로 이용자 기기 안에서 실시간 처리되며, 원본 영상은 어떠한 형태로도 저장하거나 외부로 전송하지 않고 처리 즉시 폐기됩니다. 측정 결과 수치만 회사 서버에 저장됩니다.</li>
-        <li><strong>피부 분석:</strong> 촬영한 얼굴 사진은 분석을 위해 제3자(YouCam by PerfectCorp)의 해외 서버로 전송되어 처리되며, 회사 서버에는 얼굴 사진 원본을 저장하지 않고 분석 결과값만 저장합니다.</li>
-        <li><strong>얼굴 데이터의 처리 목적:</strong> 얼굴 영상·사진은 오직 이용자가 요청한 건강·피부 분석을 수행하기 위한 목적으로만 처리되며, 그 외의 용도(마케팅·AI 모델 학습 등)로 이용하지 않습니다.</li>
-        <li><strong>보유 기간 및 사유:</strong> 얼굴 영상·사진 원본은 저장하지 않으므로 별도의 보유 기간이 없습니다(처리 즉시 폐기). 분석으로 도출된 측정 결과값은 이용자가 자신의 측정 기록을 열람·관리할 수 있도록 하기 위한 목적으로, 회원 탈퇴 시 또는 이용자가 앱에서 해당 기록을 직접 삭제하는 시점까지 보관하며, 그 시점에 즉시 완전 삭제합니다. 회사는 얼굴 데이터를 무기한 보관하지 않습니다.</li>
-        <li><strong>제3자(YouCam by PerfectCorp)의 처리 관행:</strong> 피부 분석을 위해 전송된 얼굴 사진은 Perfect Corp.의 서버에서 분석 처리 목적으로만 사용되며, 처리가 완료되면 Perfect Corp. 서버에서 영구 삭제됩니다. Perfect Corp.은 얼굴·생체정보를 저장·판매·거래하지 않으며, 이용자의 삭제 요청 시 관련 데이터를 완전 삭제(purge)합니다. (Perfect Corp. 개인정보처리방침 기준)</li>
-        <li><strong>보유·삭제:</strong> 측정 결과는 이용자가 앱에서 개별 기록을 직접 삭제(즉시 완전 삭제)할 수 있으며, 회원 탈퇴 시 관련 데이터를 모두 파기합니다.</li>
-      </ul>
+    <h2>4. Processing of Sensitive Information and Biometric Data (Separate Consent Required)</h2>
+    <p>The MetaHint app processes users' facial images, photos, and the health/skin measurements derived from them (sensitive information) for health and skin analysis. We obtain separate explicit consent for each feature, independently from general personal information.</p>
+    <ul>
+      <li><strong>Health (biometric) measurement:</strong> The facial video captured during measurement is processed in real time on your device using FzljtiliSignal (Binah) technology. The original video is never stored in any form or transmitted externally, and is discarded immediately after processing. Only the numerical measurement results are stored on the company's server.</li>
+      <li><strong>Skin analysis:</strong> The facial photo you take is sent to and processed by a third party (YouCam by PerfectCorp) on overseas servers for analysis. The company does not store the original facial photo on its server; it stores only the analysis result values.</li>
+      <li><strong>Purpose of facial data processing:</strong> Facial video and photos are processed solely to perform the health/skin analysis requested by the user, and are not used for any other purpose (such as marketing or AI model training).</li>
+      <li><strong>Retention period and reason:</strong> Because original facial video and photos are not stored, there is no retention period for them (they are discarded immediately after processing). The measurement result values derived from analysis are retained, for the purpose of allowing users to view and manage their own measurement records, until the user withdraws their account or directly deletes the record in the app, at which point they are immediately and completely deleted. The company does not retain facial data indefinitely.</li>
+      <li><strong>Third-party (YouCam by PerfectCorp) practices:</strong> Facial photos transmitted for skin analysis are used by Perfect Corp.'s server solely for analysis processing and are permanently deleted from Perfect Corp.'s server once processing is complete. Perfect Corp. does not store, sell, or trade facial or biometric information, and purges the relevant data upon a user's deletion request. (Per Perfect Corp.'s Privacy Policy.)</li>
+      <li><strong>Retention and deletion:</strong> Users can delete individual measurement records directly in the app (deleted immediately and permanently). All related data is destroyed upon account withdrawal.</li>
+    </ul>
 
-      <h2>5. 개인정보의 제3자 제공 및 위탁</h2>
-      <p>회사는 이용자의 동의 없이 개인정보를 외부에 제공하지 않으며, 데이터 전송 전 기능별로 무엇을·누구에게·왜 제공하는지 안내하고 동의를 받습니다. 서비스 제공을 위해 아래와 같이 처리·위탁합니다.</p>
-      <ul>
-        <li>YouCam (PerfectCorp): 피부 분석을 위한 얼굴 사진 처리(해외 전송). 동등한 수준의 보호조치를 적용합니다.</li>
-        <li>MetaHint AI 서버: AI 상담을 위한 대화 내용 및 건강·피부 측정 요약 처리.</li>
-        <li>클라우드 인프라(AWS, Google Cloud 등): 데이터 보관.</li>
-        <li>FzljtiliSignal(Binah) SDK: 얼굴 영상의 기기 내 처리(외부 전송 없음).</li>
-      </ul>
-      <p>이용자는 위 제3자 제공·처리에 대한 동의를 언제든지 앱의 '데이터 이용 동의 관리'에서 철회할 수 있습니다.</p>
+    <h2>5. Provision to Third Parties and Outsourcing</h2>
+    <p>The company does not provide personal information to third parties without the user's consent. Before any data is transmitted, users are informed of what is sent, to whom, and why, and consent is obtained per feature. For service provision, we process and outsource as follows.</p>
+    <ul>
+      <li>YouCam (PerfectCorp): Processing facial photos for skin analysis (overseas transfer). Equivalent protection measures are applied.</li>
+      <li>MetaHint AI server: Processing conversation content and health/skin measurement summaries for AI chat.</li>
+      <li>Cloud infrastructure (AWS, Google Cloud, etc.): Data storage.</li>
+      <li>FzljtiliSignal (Binah) SDK: On-device processing of facial video (no external transmission).</li>
+    </ul>
+    <p>Users may withdraw consent to the above third-party provision and processing at any time in the app's 'Data Consent Settings'.</p>
 
-      <h2>6. 개인정보의 파기 절차 및 방법</h2>
-      <ul>
-        <li>파기 절차: 목적 달성 후 내부 방침에 따라 안전하게 삭제합니다.</li>
-        <li>파기 방법: 전자적 파일 형태는 복구가 불가능한 기술적 방법으로 삭제하며, 종이 문서는 분쇄하거나 소각합니다.</li>
-      </ul>
+    <h2>6. Procedures and Methods for Destruction</h2>
+    <p>We safely delete information after the purpose is achieved; electronic files are irreversibly deleted and paper documents are shredded or incinerated.</p>
 
-      <h2>7. 정보주체와 법정대리인의 권리·의무 및 행사방법</h2>
-      <p>이용자는 언제든지 자신의 개인정보를 조회, 수정하거나 회원 탈퇴를 통해 동의 철회를 할 수 있습니다.</p>
+    <h2>7. Rights of Data Subjects and Legal Representatives</h2>
+    <p>Users may access, correct their information, or withdraw consent through account withdrawal at any time.</p>
 
-      <h2>8. 개인정보의 안전성 확보 조치</h2>
-      <p>회사는 개인정보 보호를 위해 다음과 같은 조치를 취하고 있습니다.</p>
-      <ul>
-        <li>해시함수 암호화: 비밀번호 및 지갑 개인키(필요 시)의 안전한 관리.</li>
-        <li>전송 암호화: 데이터 전송 시 SSL 등 암호화 통신 적용.</li>
-        <li>접근 제한: 개인정보 취급 직원의 최소화 및 보안 교육.</li>
-      </ul>
+    <h2>8. Security Measures for Personal Information</h2>
+    <p>We take measures such as encryption (passwords, wallet private keys), SSL for transmission, and access restrictions and training for personnel.</p>
 
-      <h2>9. 가상자산 지갑 관련 특이사항</h2>
-      <ul>
-        <li>이용자의 MTHT 코인 지갑 주소와 거래 기록은 블록체인 네트워크의 특성상 완전한 삭제가 불가능할 수 있으며, 이는 기술적 특성에 따릅니다.</li>
-        <li>개인키(Private Key) 관리 책임은 이용자 본인에게 있으며, 회사는 이용자의 부주의로 인한 키 유실에 책임을 지지 않습니다.</li>
-      </ul>
+    <h2>9. Virtual Asset Wallet</h2>
+    <p>MTHT wallet addresses and transaction records may not be fully deletable due to the nature of the blockchain. The user is responsible for managing their private key; we are not liable for loss due to user negligence.</p>
 
-      <div class="effective"><b>공고일자:</b> 2026년 6월 22일 &nbsp;·&nbsp; <b>시행일자:</b> 2026년 6월 22일</div>
-    </section>
-
-    <!-- ===================== English ===================== -->
-    <section id="en" class="lang-section">
-      <h1>MetaHint Privacy Policy</h1>
-      <p class="intro">Metahint Global INC ("Company") values users' personal information and complies with relevant laws including the Personal Information Protection Act. This policy explains what personal information we collect, how we use it, and what measures we take to protect it.</p>
-
-      <h2>1. Personal Information We Collect and How We Collect It</h2>
-      <p>We collect the minimum necessary personal information for service provision and obtain separate explicit consent for <strong>sensitive information (health and skin data)</strong>.</p>
-      <ul>
-        <li>Account registration and management: email address, password, nickname, mobile number.</li>
-        <li>Health and skin analysis service (required): photos and videos captured via smartphone camera, analysis results (quantified health/skin status).</li>
-        <li>AI consultation service: AI conversation content and search history.</li>
-        <li>Virtual asset wallet service: MTHT coin wallet address, transaction history (Transaction ID).</li>
-        <li>Automatically collected: device information (model, OS), IP address, service usage logs, cookies.</li>
-      </ul>
-
-      <h2>2. Purpose of Processing Personal Information</h2>
-      <ul>
-        <li>Service provision: AI-based health/skin analysis and results using the camera.</li>
-        <li>AI customized consultation: customized health information and conversational consultation based on analysis data.</li>
-        <li>Financial services: MTHT coin wallet creation, asset management, and transfer/transaction support.</li>
-        <li>User management: identity verification, customer inquiry response, fraud prevention.</li>
-      </ul>
-
-      <h2>3. Retention and Use Period of Personal Information</h2>
-      <p>We destroy personal information without delay after the purpose of collection and use is achieved. Exceptions:</p>
-      <ul>
-        <li>Upon withdrawal: destroyed immediately (except where retention is required by law, e.g. virtual asset transaction records).</li>
-        <li>Retention under applicable laws: records on contracts or withdrawal of offers — 5 years; records on consumer complaints or dispute handling — 3 years; service visit records — 3 months.</li>
-      </ul>
-
-      <h2>4. Processing of Sensitive Information and Biometric Data (Separate Consent Required)</h2>
-      <p>The MetaHint app processes users' facial images, photos, and the health/skin measurements derived from them (sensitive information) for health and skin analysis. We obtain separate explicit consent for each feature, independently from general personal information.</p>
-      <ul>
-        <li><strong>Health (biometric) measurement:</strong> The facial video captured during measurement is processed in real time on your device using FzljtiliSignal (Binah) technology. The original video is never stored in any form or transmitted externally, and is discarded immediately after processing. Only the numerical measurement results are stored on the company's server.</li>
-        <li><strong>Skin analysis:</strong> The facial photo you take is sent to and processed by a third party (YouCam by PerfectCorp) on overseas servers for analysis. The company does not store the original facial photo on its server; it stores only the analysis result values.</li>
-        <li><strong>Purpose of facial data processing:</strong> Facial video and photos are processed solely to perform the health/skin analysis requested by the user, and are not used for any other purpose (such as marketing or AI model training).</li>
-        <li><strong>Retention period and reason:</strong> Because original facial video and photos are not stored, there is no retention period for them (they are discarded immediately after processing). The measurement result values derived from analysis are retained, for the purpose of allowing users to view and manage their own measurement records, until the user withdraws their account or directly deletes the record in the app, at which point they are immediately and completely deleted. The company does not retain facial data indefinitely.</li>
-        <li><strong>Third-party (YouCam by PerfectCorp) practices:</strong> Facial photos transmitted for skin analysis are used by Perfect Corp.'s server solely for analysis processing and are permanently deleted from Perfect Corp.'s server once processing is complete. Perfect Corp. does not store, sell, or trade facial or biometric information, and purges the relevant data upon a user's deletion request. (Per Perfect Corp.'s Privacy Policy.)</li>
-        <li><strong>Retention and deletion:</strong> Users can delete individual measurement records directly in the app (deleted immediately and permanently). All related data is destroyed upon account withdrawal.</li>
-      </ul>
-
-      <h2>5. Provision to Third Parties and Outsourcing</h2>
-      <p>The company does not provide personal information to third parties without the user's consent. Before any data is transmitted, users are informed of what is sent, to whom, and why, and consent is obtained per feature. For service provision, we process and outsource as follows.</p>
-      <ul>
-        <li>YouCam (PerfectCorp): Processing facial photos for skin analysis (overseas transfer). Equivalent protection measures are applied.</li>
-        <li>MetaHint AI server: Processing conversation content and health/skin measurement summaries for AI chat.</li>
-        <li>Cloud infrastructure (AWS, Google Cloud, etc.): Data storage.</li>
-        <li>FzljtiliSignal (Binah) SDK: On-device processing of facial video (no external transmission).</li>
-      </ul>
-      <p>Users may withdraw consent to the above third-party provision and processing at any time in the app's 'Data Consent Settings'.</p>
-
-      <h2>6. Procedures and Methods for Destruction</h2>
-      <p>We safely delete information after the purpose is achieved; electronic files are irreversibly deleted and paper documents are shredded or incinerated.</p>
-
-      <h2>7. Rights of Data Subjects and Legal Representatives</h2>
-      <p>Users may access, correct their information, or withdraw consent through account withdrawal at any time.</p>
-
-      <h2>8. Security Measures for Personal Information</h2>
-      <p>We take measures such as encryption (passwords, wallet private keys), SSL for transmission, and access restrictions and training for personnel.</p>
-
-      <h2>9. Virtual Asset Wallet</h2>
-      <p>MTHT wallet addresses and transaction records may not be fully deletable due to the nature of the blockchain. The user is responsible for managing their private key; we are not liable for loss due to user negligence.</p>
-
-      <div class="effective"><b>Announcement date:</b> June 22, 2026 &nbsp;·&nbsp; <b>Effective date:</b> June 22, 2026</div>
-    </section>
-
-    <!-- ===================== Bahasa Indonesia ===================== -->
-    <section id="id" class="lang-section">
-      <h1>Kebijakan Privasi Metahint</h1>
-      <p class="intro">Metahint Global INC ("Perusahaan") menghargai informasi pribadi pengguna dan mematuhi hukum yang berlaku termasuk Undang-Undang Perlindungan Informasi Pribadi. Kebijakan ini menjelaskan informasi pribadi yang kami kumpulkan, cara kami menggunakannya, dan langkah-langkah perlindungan.</p>
-
-      <h2>1. Informasi Pribadi yang Kami Kumpulkan dan Cara Pengumpulan</h2>
-      <p>Kami mengumpulkan informasi pribadi minimum untuk penyediaan layanan dan memperoleh persetujuan tersendiri untuk <strong>informasi sensitif (data kesehatan dan kulit)</strong>.</p>
-      <ul>
-        <li>Pendaftaran dan pengelolaan akun: alamat email, kata sandi, nama panggilan, nomor ponsel.</li>
-        <li>Layanan analisis kesehatan dan kulit (wajib): foto dan video dari kamera ponsel, hasil analisis (status kesehatan/kulit terkuantifikasi).</li>
-        <li>Layanan konsultasi AI: konten percakapan AI dan riwayat pencarian.</li>
-        <li>Layanan dompet aset virtual: alamat dompet koin MTHT, riwayat transaksi (Transaction ID).</li>
-        <li>Terkumpul otomatis: informasi perangkat (model, OS), alamat IP, log penggunaan layanan, cookie.</li>
-      </ul>
-
-      <h2>2. Tujuan Pengolahan Informasi Pribadi</h2>
-      <ul>
-        <li>Penyediaan layanan: analisis kesehatan/kulit berbasis AI dan hasil menggunakan kamera.</li>
-        <li>Konsultasi AI yang disesuaikan: informasi kesehatan dan konsultasi berdasarkan data analisis.</li>
-        <li>Layanan keuangan: pembuatan dompet koin MTHT, manajemen aset, dukungan transfer/transaksi.</li>
-        <li>Pengelolaan pengguna: verifikasi identitas, respons pertanyaan pelanggan, pencegahan penipuan.</li>
-      </ul>
-
-      <h2>3. Masa Penyimpanan dan Penggunaan</h2>
-      <p>Kami menghapus informasi pribadi tanpa penundaan setelah tujuan tercapai. Pengecualian:</p>
-      <ul>
-        <li>Saat penarikan diri: dihapus segera (kecuali jika penyimpanan diwajibkan oleh hukum, mis. catatan transaksi aset virtual).</li>
-        <li>Penyimpanan menurut hukum yang berlaku: catatan kontrak/penarikan penawaran — 5 tahun; keluhan/sengketa konsumen — 3 tahun; catatan kunjungan layanan — 3 bulan.</li>
-      </ul>
-
-      <h2>4. Pengolahan Informasi Sensitif dan Data Biometrik Wajah (Persetujuan Terpisah Diperlukan)</h2>
-      <p>Aplikasi MetaHint mengolah gambar wajah, foto, dan nilai pengukuran kesehatan/kulit yang diturunkan darinya (informasi sensitif) untuk analisis kesehatan dan kulit. Kami memperoleh persetujuan eksplisit terpisah untuk setiap fitur, secara independen dari informasi pribadi umum.</p>
-      <ul>
-        <li><strong>Pengukuran kesehatan (biometrik):</strong> Video wajah yang diambil selama pengukuran diproses secara real-time di perangkat Anda menggunakan teknologi FzljtiliSignal (Binah). Video asli tidak pernah disimpan dalam bentuk apa pun atau ditransmisikan ke luar, dan dihapus segera setelah pemrosesan. Hanya nilai hasil pengukuran numerik yang disimpan di server perusahaan.</li>
-        <li><strong>Analisis kulit:</strong> Foto wajah yang Anda ambil dikirim ke dan diproses oleh pihak ketiga (YouCam by PerfectCorp) di server luar negeri untuk analisis. Perusahaan tidak menyimpan foto wajah asli di servernya; hanya menyimpan nilai hasil analisis.</li>
-        <li><strong>Tujuan pengolahan data wajah:</strong> Video dan foto wajah diproses semata-mata untuk melakukan analisis kesehatan/kulit yang diminta pengguna, dan tidak digunakan untuk tujuan lain (seperti pemasaran atau pelatihan model AI).</li>
-        <li><strong>Masa penyimpanan dan alasannya:</strong> Karena video/foto wajah asli tidak disimpan, tidak ada masa penyimpanan untuknya (dihapus segera setelah pemrosesan). Nilai hasil pengukuran yang diturunkan dari analisis disimpan, untuk memungkinkan pengguna melihat dan mengelola catatan pengukuran mereka sendiri, hingga pengguna menarik akun atau menghapus catatan secara langsung di aplikasi, saat itu data dihapus segera dan sepenuhnya. Perusahaan tidak menyimpan data wajah tanpa batas waktu.</li>
-        <li><strong>Praktik pihak ketiga (YouCam by PerfectCorp):</strong> Foto wajah yang dikirim untuk analisis kulit digunakan oleh server Perfect Corp. semata-mata untuk pemrosesan analisis dan dihapus secara permanen dari server Perfect Corp. setelah pemrosesan selesai. Perfect Corp. tidak menyimpan, menjual, atau memperdagangkan informasi wajah atau biometrik, dan menghapus (purge) data terkait atas permintaan penghapusan pengguna. (Sesuai Kebijakan Privasi Perfect Corp.)</li>
-        <li><strong>Penyimpanan dan penghapusan:</strong> Pengguna dapat menghapus setiap catatan pengukuran secara langsung di aplikasi (dihapus segera dan permanen). Semua data terkait dihancurkan saat akun ditarik.</li>
-      </ul>
-
-      <h2>5. Penyediaan ke Pihak Ketiga dan Alih Daya</h2>
-      <p>Perusahaan tidak memberikan informasi pribadi ke pihak ketiga tanpa persetujuan pengguna. Sebelum data ditransmisikan, pengguna diberi tahu apa yang dikirim, kepada siapa, dan mengapa, serta persetujuan diperoleh per fitur. Untuk penyediaan layanan, kami mengolah dan mengalihdayakan sebagai berikut.</p>
-      <ul>
-        <li>YouCam (PerfectCorp): Pemrosesan foto wajah untuk analisis kulit (transfer luar negeri). Langkah perlindungan setara diterapkan.</li>
-        <li>Server AI MetaHint: Pemrosesan konten percakapan dan ringkasan pengukuran kesehatan/kulit untuk chat AI.</li>
-        <li>Infrastruktur cloud (AWS, Google Cloud, dll.): Penyimpanan data.</li>
-        <li>SDK FzljtiliSignal (Binah): Pemrosesan video wajah di perangkat (tidak ada transmisi eksternal).</li>
-      </ul>
-      <p>Pengguna dapat mencabut persetujuan atas penyediaan dan pemrosesan pihak ketiga di atas kapan saja di 'Kelola Persetujuan Data' aplikasi.</p>
-
-      <h2>6. Prosedur dan Metode Penghancuran</h2>
-      <p>Kami menghapus dengan aman setelah tujuan tercapai; file elektronik dihapus secara permanen, dokumen kertas dihancurkan atau dibakar.</p>
-
-      <h2>7. Hak Subjek Data dan Wali Hukum</h2>
-      <p>Pengguna dapat mengakses, memperbaiki informasi, atau mencabut persetujuan melalui penarikan akun kapan saja.</p>
-
-      <h2>8. Tindakan Keamanan Informasi Pribadi</h2>
-      <p>Kami menerapkan enkripsi (kata sandi, kunci pribadi dompet), SSL untuk transmisi, pembatasan akses dan pelatihan personel.</p>
-
-      <h2>9. Dompet Aset Virtual</h2>
-      <p>Alamat dompet MTHT dan riwayat transaksi mungkin tidak dapat dihapus sepenuhnya karena sifat blockchain. Pengguna bertanggung jawab atas kunci pribadi; kami tidak bertanggung jawab atas kehilangan karena kelalaian pengguna.</p>
-
-      <div class="effective"><b>Tanggal pengumuman:</b> 22 Juni 2026 &nbsp;·&nbsp; <b>Tanggal berlaku:</b> 22 Juni 2026</div>
-    </section>
+    <div class="effective"><b>Announcement date:</b> June 22, 2026 &nbsp;·&nbsp; <b>Effective date:</b> June 22, 2026</div>
   </div>
-
-  <script>
-    function showLang(lang) {
-      document.querySelectorAll('.lang-section').forEach(function (s) { s.classList.remove('active'); });
-      document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.remove('active'); });
-      var sec = document.getElementById(lang);
-      if (sec) sec.classList.add('active');
-      var btn = document.querySelector('.lang-btn[data-lang="' + lang + '"]');
-      if (btn) btn.classList.add('active');
-      document.documentElement.lang = lang;
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    }
-    (function () {
-      var nav = (navigator.language || 'ko').slice(0, 2).toLowerCase();
-      if (nav === 'en' || nav === 'id') showLang(nav);
-    })();
-  </script>
 </body>
 </html>
